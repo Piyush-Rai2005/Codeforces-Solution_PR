@@ -50,13 +50,14 @@ void swap(ll &a,ll &b){
 
 //solution
 void sol(){
-    ll n;
-    cin>>n;
+    ll n,k;
+    cin>>n>>k;
     vll a(n);
     loop(i,n){
         cin>>a[i];
     }
-    
+    sort(a);
+    int flag
 }
 
 //Main.

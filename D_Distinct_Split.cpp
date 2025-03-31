@@ -1,11 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//time taken to code & submit== min3//
+
 //for speed.
 #define Time ios::sync_with_stdio(false);
 #define to cin.tie(NULL);
 #define Code  cout.tie(NULL);
-#define ip(num)      int num;cin>>num;
+#define ip(num)      ll num;cin>>num;
 #define ips(str)     string str;cin>>str;
 
 //Loops
@@ -13,9 +15,11 @@ using namespace std;
 #define floop(i,a,b) for(ll i=a;i<b;i++)
 #define rloop(i,a,b) for(ll i=a;i>b;i--)
 #define sort(v) sort(v.begin(),v.end())
+#define rsort(v) sort(v.rbegin(),v.rend())
 #define en '\n'
-#define pb(x) push_back(x)
-#define eb(x) emplace_back(x)
+#define pb(num) push_back(num)
+#define eb(num) emplace_back(num)
+
 
 
 // Aliases:
@@ -34,6 +38,7 @@ const int inf = INT_MAX;
 // TypeDefs:
 typedef pair<ll,ll> pll;
 typedef vector<ll> vll;
+typedef vector<vll> vvll;
 typedef vector<int> vit;
 typedef vector<vit> vvit;
 typedef vector<pll> vpll;
@@ -41,24 +46,45 @@ typedef vector<string> vs;
 typedef unordered_map<ll,ll> umll;
 typedef map<ll,ll> mll;
 
-//swap//
-void swap(ll &a,ll &b){
-    ll tmp=a;
-    a=b;
-    b=tmp;
-}
 
 //solution
-void sol(){
-    ll n;
-    cin>>n;
-    vll a(n);
-    loop(i,n){
-        cin>>a[i];
-    }
-    
-}
 
+
+void sol(){
+ ip(n);
+ int arr[n];
+ ips(s);
+ string s2;
+ string s1;
+ int flag=0;
+ for(auto it : s){
+    if(arr[it-97]==0 && flag==0){arr[it-97]+=1;
+    s2.push_back(it);
+    }
+    else{
+        flag=1;
+        s1.push_back(it);
+    }
+ }
+arr[n]={0};
+int cnt=0;
+ for(auto it : s1){
+    if(arr[it-97]==0){
+        cnt++;
+        arr[it-97]+=1;
+    }
+ }
+ int brr[n]={0};
+  for(auto it : s2){
+    if(brr[it-97]==0){
+        cnt++;
+        brr[it-97]+=1;
+    }
+ }
+ cout<<cnt<<en;
+ 
+
+}
 //Main.
 int main(){
    Time to Code
@@ -66,6 +92,7 @@ int main(){
     cin>>t;
     while(t--){
         sol();
+  
     }
     return 0;
 }

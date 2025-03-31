@@ -1,11 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//time taken to code & submit== min3//
+
 //for speed.
 #define Time ios::sync_with_stdio(false);
 #define to cin.tie(NULL);
 #define Code  cout.tie(NULL);
-#define ip(num)      int num;cin>>num;
+#define ip(num)      ll num;cin>>num;
 #define ips(str)     string str;cin>>str;
 
 //Loops
@@ -13,9 +15,11 @@ using namespace std;
 #define floop(i,a,b) for(ll i=a;i<b;i++)
 #define rloop(i,a,b) for(ll i=a;i>b;i--)
 #define sort(v) sort(v.begin(),v.end())
+#define rsort(v) sort(v.rbegin(),v.rend())
 #define en '\n'
 #define pb(x) push_back(x)
 #define eb(x) emplace_back(x)
+
 
 
 // Aliases:
@@ -34,6 +38,7 @@ const int inf = INT_MAX;
 // TypeDefs:
 typedef pair<ll,ll> pll;
 typedef vector<ll> vll;
+typedef vector<vll> vvll;
 typedef vector<int> vit;
 typedef vector<vit> vvit;
 typedef vector<pll> vpll;
@@ -48,17 +53,45 @@ void swap(ll &a,ll &b){
     b=tmp;
 }
 
+
 //solution
+
+
 void sol(){
     ll n;
     cin>>n;
-    vll a(n);
-    loop(i,n){
-        cin>>a[i];
-    }
-    
-}
 
+    vll c(n);
+    loop(i,n) cin>>c[i];
+    
+    ips(s);
+    int ant=0;
+ for(ll i=0;i<n;i++){
+    ll vis[n]={0};
+    vll ans(n);
+    int cnt=0;
+    ll j=i;
+    int pnt=0;
+    while(pnt<n){
+        vis[j]=1;
+        if(s[j]=='0') cnt++;
+        if(vis[c[j]-1] == 1) break;
+    if(j<ant){
+        cnt = ans[j];
+        break;
+    }
+        j = (c[j]-1);
+        pnt++;
+
+    }  
+
+ cout<<cnt<<" ";
+ ans.push_back(cnt);
+ ant++;
+ }
+ cout<<en;
+ 
+}
 //Main.
 int main(){
    Time to Code

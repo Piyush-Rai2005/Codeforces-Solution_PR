@@ -11,8 +11,6 @@ using namespace std;
 //Loops
 #define loop(i,n) for(ll i=0;i<n;i++)
 #define floop(i,a,b) for(ll i=a;i<b;i++)
-#define rloop(i,a,b) for(ll i=a;i>b;i--)
-#define sort(v) sort(v.begin(),v.end())
 #define en '\n'
 #define pb(x) push_back(x)
 #define eb(x) emplace_back(x)
@@ -34,6 +32,7 @@ const int inf = INT_MAX;
 // TypeDefs:
 typedef pair<ll,ll> pll;
 typedef vector<ll> vll;
+typedef vector<vll> vvll;
 typedef vector<int> vit;
 typedef vector<vit> vvit;
 typedef vector<pll> vpll;
@@ -41,22 +40,46 @@ typedef vector<string> vs;
 typedef unordered_map<ll,ll> umll;
 typedef map<ll,ll> mll;
 
-//swap//
-void swap(ll &a,ll &b){
-    ll tmp=a;
-    a=b;
-    b=tmp;
-}
-
 //solution
 void sol(){
-    ll n;
-    cin>>n;
-    vll a(n);
-    loop(i,n){
-        cin>>a[i];
-    }
+    ll n,q;
+    cin>>n>>q;
+    string a;
+    cin>>a;
+    string b;
+    cin>>b;
+    ll l,r;
+    a='#'+a;
+    b='#'+b;
+    loop(i,q){
+   cin>>l>>r;
     
+    ll p=(r-l)+1;
+    string c;
+    string d;
+    floop(i,l,r){
+        c[i-l]=a[i];
+        d[i-l]=b[i];
+    }
+    // cout<<c;
+    // cout<<d;
+    sort(c.begin(),c.end());   
+    sort(d.begin(),d.end());
+    // c='#'+c;
+    // d='#'+d;
+    ll cnt=0;    
+    string e;
+    loop(i,p){
+        loop(j,p){
+            if(c[i]==d[j]){
+                cnt++;
+                break;
+            }
+        }
+    }
+    cout<<p-cnt<<en;
+    }
+
 }
 
 //Main.

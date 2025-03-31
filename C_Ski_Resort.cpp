@@ -1,21 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//time taken to code & submit== 38 min//
+
 //for speed.
 #define Time ios::sync_with_stdio(false);
 #define to cin.tie(NULL);
 #define Code  cout.tie(NULL);
-#define ip(num)      int num;cin>>num;
+#define ip(num)      ll num;cin>>num;
 #define ips(str)     string str;cin>>str;
 
 //Loops
 #define loop(i,n) for(ll i=0;i<n;i++)
 #define floop(i,a,b) for(ll i=a;i<b;i++)
 #define rloop(i,a,b) for(ll i=a;i>b;i--)
-#define sort(v) sort(v.begin(),v.end())
+#define sortV(v) sort(v.begin(),v.end())
+#define rsortV(v) sort(v.rbegin(),v.rend())
+#define minV(arr)  *min_element(arr.begin(), arr.end())
+#define maxV(arr)  *max_element(arr.begin(), arr.end())
 #define en '\n'
 #define pb(x) push_back(x)
 #define eb(x) emplace_back(x)
+
 
 
 // Aliases:
@@ -34,6 +40,7 @@ const int inf = INT_MAX;
 // TypeDefs:
 typedef pair<ll,ll> pll;
 typedef vector<ll> vll;
+typedef vector<vll> vvll;
 typedef vector<int> vit;
 typedef vector<vit> vvit;
 typedef vector<pll> vpll;
@@ -41,24 +48,34 @@ typedef vector<string> vs;
 typedef unordered_map<ll,ll> umll;
 typedef map<ll,ll> mll;
 
-//swap//
-void swap(ll &a,ll &b){
-    ll tmp=a;
-    a=b;
-    b=tmp;
-}
 
 //solution
-void sol(){
-    ll n;
-    cin>>n;
-    vll a(n);
-    loop(i,n){
-        cin>>a[i];
-    }
-    
-}
 
+
+void sol(){
+ ll n,k,q;
+ cin>>n>>k>>q;
+ vll a(n);
+ ll cnt=0;
+ ll score=0;
+ ll add=0;
+ loop(i,n) cin>>a[i];
+ loop(i,n){
+    if(a[i]<=q){
+        cnt++;
+        if(cnt>=k){
+            add += (cnt-k+1);
+        }
+        }
+    else{
+        cnt=0;
+        score +=add;
+        add=0;
+    }
+ }
+ if(add >0) score +=add;
+ cout<<score<<en;
+}
 //Main.
 int main(){
    Time to Code
@@ -66,6 +83,7 @@ int main(){
     cin>>t;
     while(t--){
         sol();
+  
     }
     return 0;
 }

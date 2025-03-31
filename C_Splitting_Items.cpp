@@ -1,11 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//time taken to code & submit==50:04 min//
+
 //for speed.
 #define Time ios::sync_with_stdio(false);
 #define to cin.tie(NULL);
 #define Code  cout.tie(NULL);
-#define ip(num)      int num;cin>>num;
+#define ip(num)      ll num;cin>>num;
 #define ips(str)     string str;cin>>str;
 
 //Loops
@@ -50,15 +52,32 @@ void swap(ll &a,ll &b){
 
 //solution
 void sol(){
-    ll n;
-    cin>>n;
+    ll n,k;
+    cin>>n>>k;
     vll a(n);
-    loop(i,n){
-        cin>>a[i];
+    loop(i,n) cin>>a[i];
+    sort(a);
+    ll i=0;
+    while(k>0 && i<n-1){
+        ll x;
+        x=min((a[n-1-i]-a[n-2-i]),k);
+        a[n-2-i]+=x;
+        k=k-x;
+        i+=2;
     }
-    
+    ll sumA=0;
+    ll sumB=0;
+    ll j=0;
+    while(j<n){
+        if(j&1){
+            sumB+=a[n-1-j];
+        }
+        else sumA+=a[n-1-j];
+        j++;
+    }
+    cout<<sumA-sumB<<en;
+   
 }
-
 //Main.
 int main(){
    Time to Code

@@ -1,11 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//time taken to code & submit==28.30 min3//
+
 //for speed.
 #define Time ios::sync_with_stdio(false);
 #define to cin.tie(NULL);
 #define Code  cout.tie(NULL);
-#define ip(num)      int num;cin>>num;
+#define ip(num)      ll num;cin>>num;
 #define ips(str)     string str;cin>>str;
 
 //Loops
@@ -16,6 +18,7 @@ using namespace std;
 #define en '\n'
 #define pb(x) push_back(x)
 #define eb(x) emplace_back(x)
+
 
 
 // Aliases:
@@ -34,6 +37,7 @@ const int inf = INT_MAX;
 // TypeDefs:
 typedef pair<ll,ll> pll;
 typedef vector<ll> vll;
+typedef vector<vll> vvll;
 typedef vector<int> vit;
 typedef vector<vit> vvit;
 typedef vector<pll> vpll;
@@ -47,18 +51,45 @@ void swap(ll &a,ll &b){
     a=b;
     b=tmp;
 }
+// min//
+// ll min2(ll &a, ll &b){
+//     if(a>b)return a;
+//     else return b;
+// }
+// //min of 4 numbers//
+// ll min4(ll &a, ll &b, ll &c, ll &d) {
+//     return min2(min2(a, b), min2(c, d));
+// }
+
+// //min of 3 numbers//
+// ll min3(ll &a, ll &b, ll &c) {
+//     return min2(min2(a, b), c);
+// }
 
 //solution
+
+void printF(ll ind, vector<int> &ds, ll n)
 void sol(){
-    ll n;
-    cin>>n;
+    ip(n);
     vll a(n);
     loop(i,n){
         cin>>a[i];
     }
-    
-}
+    vll b;
+    b.pb(a[0]);
+    floop(i,1,n){
+         int flag=1;
+        loop(j,b.size()){
+            if(a[i]==b[j]){
+                flag=0;
+                break;
+            }
+        }
+        if(flag==1) b.pb(a[i]);
+    }
+    printF
 
+}
 //Main.
 int main(){
    Time to Code

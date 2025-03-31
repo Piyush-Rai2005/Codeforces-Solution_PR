@@ -52,11 +52,23 @@ void swap(ll &a,ll &b){
 void sol(){
     ll n;
     cin>>n;
-    vll a(n);
+    string s;
+    cin>>s;
     loop(i,n){
-        cin>>a[i];
+        if(s[i]=='_'){
+        if(i==0 ) s[i]='(';
+        else if(i==n-1 ) s[i]=')';
+        else{
+            if(s[i-1]=='(') s[i]=')';
+            else if(s[i-1]==')') s[i]='(';
+        }
+        }
     }
-    
+    ll ans=0;
+    loop(i,n){
+        
+    }
+
 }
 
 //Main.

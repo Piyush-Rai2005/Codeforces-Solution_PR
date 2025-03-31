@@ -11,8 +11,6 @@ using namespace std;
 //Loops
 #define loop(i,n) for(ll i=0;i<n;i++)
 #define floop(i,a,b) for(ll i=a;i<b;i++)
-#define rloop(i,a,b) for(ll i=a;i>b;i--)
-#define sort(v) sort(v.begin(),v.end())
 #define en '\n'
 #define pb(x) push_back(x)
 #define eb(x) emplace_back(x)
@@ -41,22 +39,15 @@ typedef vector<string> vs;
 typedef unordered_map<ll,ll> umll;
 typedef map<ll,ll> mll;
 
-//swap//
-void swap(ll &a,ll &b){
-    ll tmp=a;
-    a=b;
-    b=tmp;
-}
-
 //solution
 void sol(){
     ll n;
     cin>>n;
-    vll a(n);
+    vll arr(n);
     loop(i,n){
-        cin>>a[i];
+        cin>>arr[i];
     }
-    
+
 }
 
 //Main.

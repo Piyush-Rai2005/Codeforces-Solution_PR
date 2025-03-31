@@ -52,11 +52,21 @@ void swap(ll &a,ll &b){
 void sol(){
     ll n;
     cin>>n;
-    vll a(n);
-    loop(i,n){
-        cin>>a[i];
+    string s;
+    cin>>s;
+    ll cnt=0;
+    ll j=n-1;
+    for(ll i=0;i<n/2;){
+        if((s[i]=='0' && s[j]=='1')||( s[i]=='1' && s[j]=='0')){
+            i++;
+            j--;
+            cnt+=2;
+        }
+        else break;
     }
-    
+    ll ans=n-cnt;
+    cout<<ans<<en;
+
 }
 
 //Main.
